@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chọn số câu</title>
+</head>
+<body>
+    <h2>{{ message }}</h2>
+    <form action="", method="post">
+        {% csrf_token %}
+        <table>
+            {{ input.as_table }}
+        </table>
+        <input type="submit", name="Submit">
+        <!-- <a href="{% url 'cauhoi' %}">list</a> -->
+    </form>
+    <!-- <p>Nhập số câu muốn trả lời:</p>
+    <div>{{ input.as_table }}</div>
+    <input type="submit", name="Register"> -->
+</body>

@@ -1,0 +1,40 @@
+{% extends "list_question.html" %}
+
+{% block title %} My amazing blog {% endblock %}
+
+{% block sidebar %}
+    <h1>This is template 1</h1>
+{% endblock sidebar %} 
+
+{% block content %}
+    <ul>{{ question0.question }} <br>
+        <ur><input type="radio"><label for="A">{{ question0.A }}</label></ur><br>
+        <ur><input type="radio"><label for="B">{{ question0.B }}</label></ur><br>
+        <ur><input type="radio"><label for="C">{{ question0.C }}</label></ur><br>
+        <ur><input type="radio"><label for="D">{{ question0.D }}</label></ur><br>
+    </ul>
+    
+    <!-- <td>{{ question0.A }}</td> 
+    <td>{{ question0.B }}</td>
+    <td>{{ question0.C }}</td>
+    <td>{{ question0.D }}</td> -->
+{% endblock content %}
+
+{% block footer %}
+<div class="pagination">    
+    <span class="step-links">
+        {% if questions.has_previous %}
+            <a href="?page={{ questions.previous_page_number }}">Previous</a>
+        {% else %}
+            <a>Previous</a>
+        {% endif %}
+    </span>
+    <span class="current">
+        page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+    </span>
+    <span>
+        {% if questions.has_next %}
+            <a href="?page={{ questions.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+{% endblock footer %}

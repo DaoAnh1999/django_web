@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} Question {% endblock title %}</title>
+</head>
+<body>
+    <div id="sidebar">
+        {% block sidebar %}{% endblock sidebar %} 
+    </div>
+    <table>
+            <!-- <tr>
+                <th>Customer name</th>
+                <th>Country</th>
+            </tr> -->
+        <div id="content">
+            {%  for question0 in questions %}
+            <tr>
+                {% block content %}
+                {% endblock %}
+            </tr>
+            {% endfor %}
+            <input type="submit" value="Submit" />
+        </div>
+    </table> 
+
+    <div id="footer">
+        {% block footer %}
+        {% endblock footer %}
+    </div>
+</body>
+</html>
