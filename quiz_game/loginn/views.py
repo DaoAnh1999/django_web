@@ -56,7 +56,6 @@ def logout(request):
         return redirect('login')
     return redirect('login')
 
-a = 0
 def nhapcau(request):
     mess1 = ''
     if request.method == 'POST':
@@ -73,7 +72,7 @@ def nhapcau(request):
             return render(request, 'input.html', {'mess1':mess1})
     else:
         return render(request, 'input.html', {'mess1':mess1})
-print(f"so F la {F, type(F)}")
+
 def cauhoi(request):
     # def cauhoi(request, number):
     try:
