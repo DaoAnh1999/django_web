@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Chọn số câu</title>
+    <title>Input</title>
 </head>
 <body>
-    <h2>{{ message }}</h2>
-    <form action="", method="post">
+    <h2>Nhập số câu hỏi muốn chơi</h2><br>
+
+    <form method="POST">
         {% csrf_token %}
-        <table>
-            {{ input.as_table }}
-        </table>
-        <input type="submit", name="Submit">
-        <!-- <a href="{% url 'cauhoi' %}">list</a> -->
+        <b>Nhập số lượng :</b>
+        <input type="number" name="number"><br><br>
+        <input type="submit" name="Submit">
     </form>
-    <!-- <p>Nhập số câu muốn trả lời:</p>
-    <div>{{ input.as_table }}</div>
-    <input type="submit", name="Register"> -->
+    <!-- <a href="{% url 'cauhoi' %}">
+        <button>Submit</button>
+    </a> -->
 </body>
