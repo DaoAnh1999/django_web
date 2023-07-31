@@ -5,11 +5,12 @@ from django.views.decorators.cache import cache_page
 from django.core.cache import caches
 from django.core.cache.backends.base import InvalidCacheBackendError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from django.db.models import Value
 # from . import forms
 # from .forms import Input
 from .models import Question, Input
 # Create your views here.
-
 def home(request):
     if 'user' in request.session:
         current_user = request.session['user']
@@ -55,20 +56,24 @@ def logout(request):
         return redirect('login')
     return redirect('login')
 
+a = 0
 def nhapcau(request):
     mess1 = ''
     if request.method == 'POST':
         input = request.POST.get('number')
-
-        # if Question.objects.filter(len >= input and len > 0 ):
-        if input <= 10:
-            return redirect('cauhoi')
+        if input != '':
+            if int(input) > 0 and int(input) < 11:
+                F = int(input)
+                return redirect('cauhoi')
+            else:
+                mess1 = 'Số lượng câu hỏi phải lớn hơn 0 và tối đa 10 '
+                return render(request, 'input.html', {'mess1':mess1})
         else:
-            mess1 = 'Nhập lại số câu hỏi. Số lượng câu hỏi phải lớn hơn 0 và tối đa 10 '
+            mess1 = 'Nhap vao so luong cau hoi'
             return render(request, 'input.html', {'mess1':mess1})
     else:
         return render(request, 'input.html', {'mess1':mess1})
-
+print(f"so F la {F, type(F)}")
 def cauhoi(request):
     # def cauhoi(request, number):
     try:
@@ -76,7 +81,7 @@ def cauhoi(request):
         print(f'getdatafromcache{question_list}')
     except InvalidCacheBackendError :
         #question_list = Question.objects.all()[0:number]
-        question_list = Question.objects.filter()
+        question_list = Question.objects.all()
         caches['question_list'] = question_list
         print(f'getdatadatabase{question_list}')
 
