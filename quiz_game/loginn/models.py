@@ -9,6 +9,8 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
+class Input(models.Model):
+    input = models.SmallIntegerField()
 
 class Question(models.Model):
     question = models.CharField(max_length=200)
