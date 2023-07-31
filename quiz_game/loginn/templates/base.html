@@ -4,21 +4,23 @@
     <title> {% block title %}Home{% endblock %} </title>
 </head>
 <body>
-    <h1>My Site</h1>
-    <a href="{% url 'home' %}">Home</a>
+    <h1>Quiz Game</h1>
+    <a href="{% url 'login' %}">Home</a>
     <span>/</span>
 
     {% if current_user %}
-        <a href="{% url 'logout' %}">Logout</a>
+        <!-- <a href="{% url 'logout' %}">Logout</a>
         <hr>
-        <a href="{% url 'cauhoi' %}">Nhap Cau</a>
+        <a href="{% url 'nhapcau' %}">
+            <button>Submit</button>
+        </a> -->
         <!-- <h2>Wellcome <span style="color: greenyellow;">{{current_user}}</span>!</h2> -->
     {% else %}
         <a href="{% url 'login' %}">Login</a>
         <span>/</span>
         <a href="{% url 'signup' %}">Sign Up</a>
         <hr>
-        <h2>Login to access this website!</h2>
+        <h2>{{ mess }}</h2>
     {% endif %}
 
     {% block body%}{% endblock body %}
