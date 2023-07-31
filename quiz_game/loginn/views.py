@@ -5,9 +5,9 @@ from django.views.decorators.cache import cache_page
 from django.core.cache import caches
 from django.core.cache.backends.base import InvalidCacheBackendError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from . import forms
-from .forms import Input
-from .models import Question
+# from . import forms
+# from .forms import Input
+from .models import Question, Input
 # Create your views here.
 
 def home(request):
@@ -34,17 +34,19 @@ def signup(request):
         return render(request, 'signup.html')         
     
 def login(request):
+    mess = ''
     if request.method == 'POST':
         uname = request.POST.get('uname')
         pwd = request.POST.get('pwd')
-    
+        mess = ''
         check_user = User.objects.filter(username=uname, password = pwd)
         if check_user:
             request.session['user'] = uname
-            return redirect('home')
+            return redirect('nhapcau')
         else:
-            return HttpResponse('Plesase enter valid username or password.')
-    return render(request, 'login.html')
+            mess = 'username or password is incorrect'
+            return render(request, 'login.html', {'mess':mess})
+    return render(request, 'login.html', {'mess':mess})
 
 def logout(request):
     try:
@@ -54,25 +56,27 @@ def logout(request):
     return redirect('login')
 
 def nhapcau(request):
-    input = forms.Input()
+    mess1 = ''
     if request.method == 'POST':
-        input = forms.Input(request.POST)
-        if input <= 10 and input > 0:
-            cauhoi()
+        input = request.POST.get('number')
+
+        # if Question.objects.filter(len >= input and len > 0 ):
+        if input <= 10:
+            return redirect('cauhoi')
         else:
-            message = 'khong dung gia tri'
+            mess1 = 'Nhập lại số câu hỏi. Số lượng câu hỏi phải lớn hơn 0 và tối đa 10 '
+            return render(request, 'input.html', {'mess1':mess1})
     else:
-        message = 'Input number question!'
-    return render(request, 'input.html', {'message':message, 'input':input})
+        return render(request, 'input.html', {'mess1':mess1})
 
 def cauhoi(request):
-    # def cauhoi(request, input):
+    # def cauhoi(request, number):
     try:
         question_list = caches['question_list']
         print(f'getdatafromcache{question_list}')
     except InvalidCacheBackendError :
-        # question_list = Question.objects.range[0,input]
-        question_list = Question.objects.all()
+        #question_list = Question.objects.all()[0:number]
+        question_list = Question.objects.filter()
         caches['question_list'] = question_list
         print(f'getdatadatabase{question_list}')
 
