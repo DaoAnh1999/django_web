@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<head>
+    {% load static %}
+    <title> {% block title %} Login {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+
+{% block header %}
+    <a href="{% url 'signup' %}" class="NoUnderLine">Sign Up /</a>
+    <hr>
+{% endblock header %}
+
+{% block body %}
+    <h1 class="H1">Login</h1>
+    <h3 class="H3">{{ message }}</h3>
+
+    <div class="Login">
+        <form method="POST">
+            {% csrf_token %}
+            <table class="TableLogin">
+                <tr>
+                    <td class="UP"><b>User Name : </b></td>
+                    <td class="TUP"><input type="text" name="uname" placeholder="User Name" class="TextUP"></td>
+                </tr>
+                <tr>
+                    <td class="UP"><b>Password : </b></td>
+                    <td class="TUP"><input type="password" name="pwd" placeholder="Password" class="TextUP"></td>
+                </tr>
+                <tr class="BtnLogin">
+                    <td colspan="2"><input type="submit" value="Login" class="BtnLogin"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock body %}

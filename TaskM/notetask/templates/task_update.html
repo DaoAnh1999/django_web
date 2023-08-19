@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<head>
+    {% load static %}
+    <title> {% block title %} Add Task {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+
+{% block body %}
+    <h1 class="H1">Update Task</h1>
+    <form method="post" class="Form">
+        {% csrf_token %}
+        <table class="TableUpdate">
+            <tr>
+                <th>Title:</th>
+                <td><input type="text" id="title" class="TextCre" name="title" value="{{ task.title }}"></td>
+            </tr>
+            <tr>
+                <th>Description:</th>
+                <td><textarea id="description" class="TextCre" name="description">{{ task.description }}</textarea></td>
+            </tr>
+            <tr>
+                <th>Deadline:</th>
+                <td><input type="date" id="deadline" class="TextCre" name="deadline" value="{{ task.deadline }}"></td>
+            </tr>
+            <tr>
+                <th>Status:</th>
+                <td><select id="status" class="TextCre" name="status">
+                        <option value="Not Start Yet" {% if task.status == 'Not Start Yet' %}selected{% endif %}>Not Start Yet</option>
+                        <option value="Doing" {% if task.status == 'Doing' %}selected{% endif %}>Doing</option>
+                        <option value="Finish" {% if task.status == 'Finish' %}selected{% endif %}>Finish</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>                
+                <td class="BtnCa"><div class="BtnCancle"><a href="{% url 'task-list' %}" class="TextCancel">Cancel</a></div></td> 
+                <td class="BtnCr"><button type="submit" class="BtnUpdate">Update</button></td>
+            </tr>            
+        </table>
+    </form>
+{% endblock body %}

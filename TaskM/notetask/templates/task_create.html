@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+<head>
+    {% load static %}
+    <title> {% block title %} Add Task {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+
+{% block body %}
+    <h1 class="H1">Create New Task</h1>
+    <form method="post" class="Form">
+        {% csrf_token %}
+        <table class="TableCreate">
+            <tr>
+                <th>Title:</th>
+                <td><input type="text" id="title" class="TextCre" name="title"></td>
+            </tr>
+            <tr>
+                <th>Description:</th>
+                <td><textarea id="description" class="TextCre" name="description"></textarea></td>
+            </tr>
+            <tr>
+                <th>Deadline:</th>
+                <td><input type="date" id="deadline" class="TextCre" name="deadline" value="{{ task.deadline|date:'Y-m-d' }}"></td>
+            </tr>
+            <tr>
+                <th>Status:</th>
+                <td><select id="status" class="TextCre" name="status">
+                        <option value="Not Start Yet">Not Start Yet</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Finish">Finish</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>     
+                <td class="BtnCa"><div class="BtnCancle"><a href="{% url 'task-list' %}" class="TextCancel">Cancel</a></div></td>           
+                <td class="BtnCr"><button type="submit" class="BtnCreate">Create</button></td>
+            </tr>            
+        </table>
+    </form>
+{% endblock body %}
+
+
+

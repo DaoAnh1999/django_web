@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<head>
+    {% load static %}
+    <title> {% block title %} Add Task {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+
+{% block body %}
+    <h1 class="H1">Confirm Delete</h1>
+    <table class="TableDelete">
+        <tr><td colspan="2" class="TitleDelete"><b>Are you sure you want to delete {{ task.title }}?</b></td></tr>
+        <tr>
+            <td class="BtnCa"><div class="BtnCancle"><a href="{% url 'task-list' %}" class="TextCancel">Cancel</a></div></td>
+            <td class="BtnCr"><form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="BtnUpdate">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock body %}

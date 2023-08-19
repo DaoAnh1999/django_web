@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {% block title %}Home{% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+
+<body>
+    <div class="home">
+        {% block header %}{% endblock header %}
+
+        {% block body%}{% endblock body %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+body, head, header{
+    font-family: 'Roboto', sans-serif;
+}
+
+.H1{
+    width: 91.3%;
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(5, 5, 189);
+    color: white;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+ /* Login, signup */
+
+.H3{
+    font-size: 15px;
+    padding-left: 45px;
+    color: rgb(189, 61, 6);
+}
+
+.Login{
+    width: 90%;
+    margin-left: 45px;
+    font-size: 20px;
+}
+
+.TableLogin{
+    width: 88%;
+}
+
+.UP{
+    width: 30%;
+    height: 50px;
+}
+
+.TUP{
+    padding-left: 20px;
+}
+.TextUP{
+    width: 100%;
+    height: 30px;
+    margin-right: 0px;
+}
+
+.BtnLogin{
+    margin-top: 10px;
+    height: 30px;
+    width: 17%;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/*  Task list */
+.NoUnderLine, .BtnE, .BtnD, .CrTask, .TextCancel {
+    text-decoration: none;
+    font-size: 20px;
+    color: blue;
+}
+.home{
+    width: 35%;
+    height: auto;
+    padding: 20px 20px 20px 20px;
+    margin: 0;
+    background-color:  lightgrey;
+    position: absolute;
+    left: 50% ;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.AddSearch{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    height: 38px;
+}
+
+.Add{
+    flex: 30%;
+    max-width: 25%;
+    padding: 5px auto 5px auto;
+    margin-left: 20px;
+    background: rgb(13, 216, 206);
+    border-radius: 4px;
+    text-align: center; 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgb(41, 40, 40);
+}
+
+.CrTask{
+    color: white;
+    font-size: 20px;
+}
+
+.Search{
+    flex: 70%;
+    max-width: 65%;
+    text-align: right;
+    font-size: 17px;
+    padding: 3px 25px 0 5px;
+    height: 40px;
+}
+
+.TextSearch{
+    height: 32px;
+    width: 70%;
+}
+
+.BtnSearch{
+    height: 36.3px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.TableList{
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 26px;
+}
+hr{
+    border: 1px solid black;
+}
+.LineTask, .btn1{
+    background-color: rgb(2, 148, 2);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    text-align: center;
+    margin: 5px 2px 2px 2px;
+    font-size: 10px;
+    cursor: pointer;
+}
+.pad{
+    padding-top: 10px;
+    font-size: 20px;
+}
+.LineTask{
+    border-bottom: 1px solid black;
+    background-color: red;
+}
+.BtnE, .BtnD{
+    color: white;
+    font-size: 17px;
+    padding: 5px auto 5px auto;
+    
+}
+.col1{
+    width: 170px;
+    padding-left: 20px;
+}
+
+/* create, update */
+form.Form{
+    margin-left: 50px;
+
+}
+.TableCreate, .TableUpdate{
+    width:  88%;
+    height: 300px;
+    border-collapse: collapse;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+#title, #deadline, #status{
+    height: 20px;
+}
+
+.TextCre{
+    width: 100%;
+}
+
+.BtnCa{
+    padding-left: 20px;
+    width: 80px;
+    padding-top: 20px;
+}
+
+.BtnCr{
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+.BtnCreate, .BtnUpdate{
+    width: 150px;
+    height: 33.6px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background: rgb(66, 224, 235);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 20px;
+    color: white;
+}
+
+.BtnCancle{
+    width: 140px;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 3px;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.TextCancel{
+    font-size: 20px;
+    color: white;    
+}
+
+/* Delete */
+.TableDelete{
+    width:  88%;
+    height: 100px;
+    margin-left: 10%;
+    border-collapse: collapse;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.TitleDelete{
+    margin-left: 20px;
+    font-size: 25px;
+    color: orangered;
+}

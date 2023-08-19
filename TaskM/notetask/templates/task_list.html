@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+<head>
+    {% load static %}
+    <title> {% block title %} Task Management {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+
+{% block header %}
+    <a href="{% url 'logout' %}" class="NoUnderLine">Logout  /</a>
+    <hr>
+{% endblock header %}
+
+{% block body %}
+    <h1 class="H1">Task List</h1>
+    <div class="AddSearch">
+        <div class="Add">
+            <a href="{% url 'task-create' %}" class="CrTask">Create Task</a>
+        </div>
+
+        <div class="Search">
+            <form method="get" action="{% url 'task-search' %}">
+                <input type="text" name="q" placeholder="Search tasks" class="TextSearch">
+                <button type="submit" class="BtnSearch">Search</button>
+            </form>
+        </div>
+    </div><br>
+
+    <table class="TableList">
+        {% for task in tasks %}
+            <tr><td colspan="3" class="pad"><strong>{{ task.title }} :</strong></td></tr>
+            <tr>
+                <td rowspan="2" class="col1">
+                    Description: <br>
+                    Deadline: <br>
+                    Status: <br>
+                </td>
+                <td rowspan="2">
+                    {{ task.description }} <br>
+                    {{ task.deadline }} <br>
+                    {{ task.status }} <br>
+                </td>
+                <td class="btn1">
+                    <a href="{% url 'task-update' task.pk %}" class="BtnE">Edit</a> 
+                </td>
+            </tr>
+            <tr class="LineTask">
+                <td><a href="{% url 'task-delete' task.pk %}" class="BtnD">Delete</a></td>
+            </tr>    
+        {% endfor %}
+    </table>
+    
+
+{% endblock body %}
+
+            
+                <!-- <td>
+                    <strong>{{ task.title }}</strong><br>
+                    Description: {{ task.description }}<br>
+                    Deadline: {{ task.deadline }}<br>
+                    Status: {{ task.status }}<br>
+                </td>
+                <a href="{% url 'task-update' task.pk %}" class="NoUnderLine">Edit</a>
+                <a href="{% url 'task-delete' task.pk %}" class="NoUnderLine">Delete</a>
+
+                <br><hr> -->

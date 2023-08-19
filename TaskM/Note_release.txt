@@ -1,0 +1,21 @@
+- Đã làm được: 
+    + Tạo 1 project( TaskM ) và app( notetask ).
+    + Có đầy đủ chức năng: list all, tìm kiếm theo tên công việc, thêm, sửa, xóa.
+    + Đã tạo được template (có kế thừa) và css.
+    + Đã viết bằng rest API (chức năng đầy đủ như bên trên) và thao tác được với DB.
+    + Tạo được 4 test. Nhưng bị lỗi ở test delete. chưa chạy được xuất KQ ra file csv
+
+- Cách thức chạy:
+    + Chạy file: python manage.py runserver.
+    + Thêm đường dẫn vào link: http://127.0.0.1:8000/home/ .
+    + Sau đó sẽ vào phần đăng nhập và phần đăng kí: user: anh .Password: 1234
+    + sau khi đăng nhập sẽ vào phần template chính. 
+    + Chức năng Tạo task: Nhấn vào nút 'Create Task' và nhập task muốn thêm rồi nhấn 'Create'
+    + Chức năng tìm kiếm: nhập tên task vào ô text rồi nhấn 'Search' để hiển thị Task cần tìm. Muốn trở về thì nhấn 'Search' 1 lần nữa.
+    + Bên cạnh thông tin mỗi task trong list task sẽ có 2 nút 'Edit' (màu green) và 'Delete'.
+    + Chức năng Sửa Task: nhấn vào nút 'Edit' của task cần sửa. Bảng sửa sẽ hiển thị ra và sửa thông tin task. Sau đó nhấn 'Update' để hoàn tất, nếu không thì nhấn nút 'Cancle'.
+    + Chức năng Xóa Task: nhấn vào nút 'Delete' của task cần xóa. Bảng xác nhận xóa task sẽ hiển thị. Nếu Ok thì nhấn vào 'Delete', nếu không thì nhấn nút 'Cancle'.
+
+    + Phần hiển thị API thì vào đường dẫn: http://127.0.0.1:8000/home/api/tasks. Sau đó sẽ thao tác với dữ liệu như trên.
+
+- Thư viện cần cài đặt: django, sqlalchemy, djangorestframework
